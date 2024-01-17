@@ -1,0 +1,22 @@
+input, select {
+    border-radius: 7px;
+    margin: 10px 0; 
+}
+.form {
+    width: 700px;
+    margin: 20px auto;
+}
+.label {
+    width: 150px;
+}
+.data {
+    width: 500px;
+}
+.left, .right {
+    display: inline-block;
+    width: 50%;
+}
+.container, .row {
+    border: 1px solid silver;
+    border-collapse: collapse;
+}
