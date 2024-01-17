@@ -2,7 +2,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
 import { User } from "../userlist/UserList";
-import '../../../styles/master.css';
+import "../../../styles/master.css";
 import Menu from "../../../menu/Menu";
 import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
 
@@ -10,6 +10,7 @@ const baseurl = "http://localhost:5000/api";
 
 export default function UserDetail() {
   const [user, setUser] = useState<User>({} as User);
+  const [showVerifyBtn, setShowVerifyBtn] = useState<boolean>(false);
 
   const navigate = useNavigate();
 
@@ -29,67 +30,94 @@ export default function UserDetail() {
   }, []);
 
   const handleDelete = () => {
-    axios.delete(`${baseurl}/users/${user.id}`)
+    axios
+      .delete(`${baseurl}/users/${user.id}`)
       .then((res): void => {
         console.debug("User Deleted", res.data);
-        navigate("/user/list")
+        navigate("/user/list");
       })
       .catch((err) => {
         console.error(err);
-      })
-    };
-  
+      });
+  };
+
+  const toggleShowVerifyBtn = () => {
+    setShowVerifyBtn(!showVerifyBtn);
+  }
+
   return (
     <>
       <Menu />
-      <Form className='form'>
+      <Form className="form">
         <Container>
           <Row>
             <Col md={3}>Id</Col>
-            <Col md={6}><input value={user.id} /></Col>
+            <Col md={6}>
+              <input value={user.id} />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>Username</Col>
-            <Col md={6}><input value={user.username} /></Col>
+            <Col md={6}>
+              <input value={user.username} />
+            </Col>
           </Row>
           <Row hidden>
             <Col md={3}>Password</Col>
-            <Col md={6}><input value={user.password} type='password' /></Col>
+            <Col md={6}>
+              <input value={user.password} type="password" />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>First name</Col>
-            <Col md={6}><input value={user.firstname} /></Col>
+            <Col md={6}>
+              <input value={user.firstname} />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>Last name</Col>
-            <Col md={6}><input value={user.lastname} /></Col>
+            <Col md={6}>
+              <input value={user.lastname} />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>Phone</Col>
-            <Col md={6}><input value={user.phone !== null ? user.phone : ''} /></Col>
+            <Col md={6}>
+              <input value={user.phone !== null ? user.phone : ""} />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>Email</Col>
-            <Col md={6}><input value={user.email !== null ? user.email : ''} /></Col>
+            <Col md={6}>
+              <input value={user.email !== null ? user.email : ""} />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>Reviewer?</Col>
-            <Col md={6}><input checked={user.isReviewer} type='checkbox' /></Col>
+            <Col md={6}>
+              <input checked={user.isReviewer} type="checkbox" />
+            </Col>
           </Row>
           <Row>
             <Col md={3}>Admin?</Col>
-            <Col md={6}><input checked={user.isAdmin} type='checkbox' /></Col>
+            <Col md={6}>
+              <input checked={user.isAdmin} type="checkbox" />
+            </Col>
           </Row>
         </Container>
-        
-      <div>
-        <div className='left'>
-          <Button variant="danger" onClick={handleDelete}>Delete</Button>
+
+        <div style={{ margin: '10px 0'}}>
+          <div className="left">
+            <Button variant="danger" onClick={toggleShowVerifyBtn}>
+              Delete
+            </Button>
+          </div>
+          <div className="right align-right" hidden={showVerifyBtn ? false : true}>
+            <Button variant="danger" onClick={handleDelete}>
+              Verify Delete
+            </Button>
+          </div>
         </div>
-        <div className='right' style={{  textAlign: 'right' }}>
-          <Button variant="danger" onClick={handleDelete}>Verify</Button>
-        </div>
-      </div>
       </Form>
     </>
   );
