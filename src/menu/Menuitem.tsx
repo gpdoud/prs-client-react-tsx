@@ -6,7 +6,7 @@ interface Props {
 export default function Menuitem({ display, route }: Props) {
     return (
         <>
-        <span>
+        <span className='menu'>
             <a href={route}>{display}</a>
         </span>
         </>

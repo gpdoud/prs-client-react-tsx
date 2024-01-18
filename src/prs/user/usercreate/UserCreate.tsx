@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Button, Col, Container, Form, Row, Table } from "react-bootstrap";
+import { Button, Col, Container, Form, Row } from "react-bootstrap";
 import Menu from "../../../menu/Menu";
 import axios from "axios";
 import '../../../styles/master.css';

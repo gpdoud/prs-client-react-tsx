@@ -7,8 +7,13 @@ a {
     color: silver;
     cursor: pointer;
     padding: 0 10px;
+    color: blue;
+    font-weight: bold;
 }
-a:hover {
+.menu a:hover {
     background-color: black;
     color: white;
+}
+.menu a {
+    color: silver;
 }

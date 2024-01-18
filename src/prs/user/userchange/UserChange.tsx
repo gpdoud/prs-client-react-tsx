@@ -2,15 +2,7 @@ import { ChangeEvent, useEffect, useState } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
 import { User } from "../userlist/UserList";
 import axios from "axios";
-import {
-  Table,
-  Button,
-  Container,
-  Col,
-  Row,
-  InputGroup,
-  FormControl,
-} from "react-bootstrap";
+import { Button, Container, Col, Row, } from "react-bootstrap";
 import Menu from "../../../menu/Menu";
 import "../../../styles/master.css";
 
