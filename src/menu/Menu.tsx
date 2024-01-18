@@ -8,6 +8,7 @@ export default function Menu() {
             <Menuitem route='/' display="Home" />
             <Menuitem route='/user/list' display="User" />
             <Menuitem route='/about' display="About" />
+            <Menuitem route='/login' display="Login" />
         </nav>
         </>
     );

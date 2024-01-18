@@ -9,9 +9,11 @@ import UserList from './prs/user/userlist/UserList';
 import UserChange from './prs/user/userchange/UserChange';
 import UserCreate from './prs/user/usercreate/UserCreate';
 import UserDetail from './prs/user/userdetail/UserDetail';
+import UserLogin from './prs/user/userlogin/UserLogin';
 
 const routes = createBrowserRouter([
   { path: '/', element: <Home /> },
+  { path: '/login', element: <UserLogin /> },
   { path: '/user/list', element: <UserList /> },
   { path: '/user/create', element: <UserCreate /> },
   { path: '/user/detail/:id', element: <UserDetail /> },

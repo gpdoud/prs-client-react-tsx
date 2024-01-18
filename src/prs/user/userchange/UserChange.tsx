@@ -1,15 +1,15 @@
 import { ChangeEvent, useEffect, useState } from "react";
 import { Form, useNavigate, useParams } from "react-router-dom";
-import { User } from "../userlist/UserList";
 import axios from "axios";
 import { Button, Container, Col, Row, } from "react-bootstrap";
 import Menu from "../../../menu/Menu";
 import "../../../styles/master.css";
+import { IUser } from "../iuser/IUser";
 
 export default function UserChange() {
   const baseurl = "http://localhost:5000/api";
 
-  const [user, setUser] = useState<User>({
+  const [user, setUser] = useState<IUser>({
     id: 0, username: '', password: '', firstname: '', lastname: '',
         phone: '', email: '', isReviewer: false, isAdmin: false
   });

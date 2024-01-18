@@ -1,0 +1,22 @@
+.login {
+    width: 500px;
+    margin: 20px auto;
+}
+.title {
+    font-size: 1.3rem;
+    font-weight: bold;
+    margin: 10px 0 10px 5px;
+    vertical-align: middle;
+}
+.col {
+    margin: 10px;
+    vertical-align: middle;
+}
+.center {
+    text-align: center;
+}
+.alert {
+    color: red;
+    font-weight: bold;
+    font-style: italic;
+}
